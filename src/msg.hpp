@@ -125,6 +125,8 @@ class msg_t
     void reset_flags (unsigned char flags_);
     metadata_t *metadata () const;
     void set_metadata (metadata_t *metadata_);
+    void set_timestamp();
+    uint64_t get_timestamp() const;
     void reset_metadata ();
     bool is_routing_id () const;
     bool is_credential () const;
@@ -241,6 +243,11 @@ class msg_t
             unsigned char type;
             long_group_t *content;
         } lgroup;
+        struct
+        {
+            // for quick zero-ing
+            unsigned long l1, l2;
+        } twolongs;
     };
 
     //  Note that fields shared between different message types are not

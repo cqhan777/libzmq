@@ -281,6 +281,8 @@ ZMQ_EXPORT int zmq_msg_get (const zmq_msg_t *msg_, int property_);
 ZMQ_EXPORT int zmq_msg_set (zmq_msg_t *msg_, int property_, int optval_);
 ZMQ_EXPORT const char *zmq_msg_gets (const zmq_msg_t *msg_,
                                      const char *property_);
+ZMQ_EXPORT uint64_t zmq_msg_timestamp (const zmq_msg_t *msg_);
+
 
 /******************************************************************************/
 /*  0MQ socket definition.                                                    */

@@ -186,6 +186,7 @@ int zmq::session_base_t::push_msg (msg_t *msg_)
     if ((msg_->flags () & msg_t::command) && !msg_->is_subscribe ()
         && !msg_->is_cancel ())
         return 0;
+    msg_->set_timestamp();
     if (_pipe && _pipe->write (msg_)) {
         const int rc = msg_->init ();
         errno_assert (rc == 0);

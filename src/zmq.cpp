@@ -747,6 +747,10 @@ const char *zmq_msg_gets (const zmq_msg_t *msg_, const char *property_)
     return NULL;
 }
 
+uint64_t zmq_msg_timestamp (const zmq_msg_t *msg_) {
+  return (reinterpret_cast<const zmq::msg_t *> (msg_))->get_timestamp();
+}
+
 // Polling.
 
 #if defined ZMQ_HAVE_POLLER
